@@ -4,6 +4,7 @@
   --muted: #9bb2c9;
   --panel: #081826;
   --white: #ffffff;
+  --border-deco: #0a1b3d; /* dark blue decorative border */
 }
 
 /* Base Reset */
@@ -60,11 +61,15 @@ html, body {
 .social-row { display: flex; gap: 12px; justify-content: center; margin-top: 18px; }
 .social-row a img { width: 44px; height: 44px; }
 
-/* All Other Sections (light) */
+/* All Other Sections (light with border) */
 #about, #services, #gallery, #careers, #contact, #blog, #downloads {
   background: #ffffff;
   color: #000000;
-  padding: 40px 0;
+  padding: 40px 20px;
+  border: 6px solid var(--border-deco);  /* decorative dark blue border */
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 1200px;
 }
 #about h1, #services h1, #gallery h1, #careers h1,
 #contact h1, #blog h1, #downloads h1,
@@ -241,7 +246,12 @@ footer {
   .logo img { height: 64px; }
 }
 @media(max-width:768px){
-  .header { display:none !important; }
+  .header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .logo img { height: 48px; }
+  .nav { display: none; }
   .hero { min-height:50vh; padding:20px 0; }
   .gallery-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
